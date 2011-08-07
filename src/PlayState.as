@@ -27,9 +27,14 @@ package
 		
 		public var gameWon:Boolean;
 		
+		public var napTime:Number;
+		
+		public var scoreBoard:FlxText;
+		
 		override public function create():void
 		{
 			gameWon = false;
+			napTime = 0;
 			
 			FlxG.bgColor = 0xFFEEEE88;
 			//FlxG.bgColor = 0xFF000000;
@@ -58,11 +63,17 @@ package
 			for (var i:int = 0; i < world.goodItems.length; i++){
 				collectedItems[i] = false;
 			}
+			
+			scoreBoard = new FlxText(10, 10, 200, "Types of things dreamed of: 0/" + world.goodItems.length);
+			scoreBoard.color = 0xFF000000;
+			add(scoreBoard); 
 		}
 		
 		public override function update():void{
 			super.update();
 				
+			napTime += FlxG.elapsed;
+			
 			if (FlxG.keys.UP)
 			{
 				velocity += velocityDelta;
@@ -116,13 +127,23 @@ package
 					if (v)
 						items++;
 				}
+				
+				scoreBoard.text = "Types of things dreamed of: " + items + "/" + world.goodItems.length;
+				
 				if (items == collectedItems.length){
 					gameWon = true;
 					FlxG.log("GAME WON!!! YOU COLLECTED ONE OF EACH TYPE AND YOUR DOGGY WOKE UP!");
+					FlxG.fade(0xFF000000, 1, onFadeComplete);
 				}
 			}
 			target.alive = false;
 			
+		}
+		
+		public function onFadeComplete():void
+		{
+			// end the game
+			FlxG.switchState(new EndScreen(napTime));
 		}
 	}
 }

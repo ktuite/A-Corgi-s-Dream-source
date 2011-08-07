@@ -9,7 +9,8 @@ package
 	{
 		public function GameJamGame()
 		{
-			super(640,480,PlayState,1);
+			super(640,480,SplashScreen,1);
+			//super(640,480,EndScreen,1);
 			FlxG.debug = true;
 		}
 	}

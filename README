@@ -1,0 +1,17 @@
+A Corgi's Dream...
+
+----
+
+Description of game:
+
+This little corgi is napping and dreaming of wonderful doggy things. Fly him around until he’s dreamed of every different type of item: kibbles, bones, and pork chops. Then he’ll wake up and the real corgi that this game was based on will be revealed.
+
+This game was made in ~10 hours at a game jam and incorporates some of the jam’s themes of “trajectories”, “sleep”, and “doggies”.
+
+----
+
+Description of code or whatever this is:
+
+Eh, I made this game in 10 hours. It'll probably be helpful to me to look at this code the next time I do somethign with flixel. Also, there are silly animal noises in the assets folder! 
+
+If you want to compile this yourself, I recommend making a new flash actionscript project in flash builder, adding flixel to the project (properies, build path, source path, include the root flixel folder??) and then dumping these files into src and thennn probably making sure the names match up. Like, you should name your project GameJamGame unless you know which names you'll need to change. 
